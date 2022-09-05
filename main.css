@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sirin+Stencil&display=swap');
+
+:root{
+    --font: 'Sirin Stencil', cursive;
+    --font-color: #d8cbb5;
+    --main-green: rgb(9, 58, 38);
+    --second-green: rgb(14, 70, 47);
+    --third-green: rgb(33, 82, 61);
+}
+html{scroll-behavior: smooth;}
+
+::selection {
+    color: rgb(200, 255, 222);
+    background-color: rgba(32, 117, 83, 0.8);
+}
+
+body{
+    margin: 0;
+    margin-bottom: 50px;
+    background-color: var(--main-green);
+    color: var(--font-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body p:nth-child(1), a{
+    color: rgb(138, 199, 162);
+    text-shadow: 3px 3px 5px rgb(5, 35, 16);
+}
+p:nth-child(1){font-family: var(--font);}
+.imp-p{
+    font-size: 2.4rem;
+    color: var(--font-color)!important;
+    text-align: center;
+}
+.imp-side{
+    width: 100%;
+    font-size: 1.4rem;
+    color: var(--font-color);
+}
+.a{margin-left: 5%;}
+body::-webkit-scrollbar{width: 20px}
+body::-webkit-scrollbar-thumb{
+    background-color: rgb(88, 135, 106);
+    border-radius: 5px;
+}  
+body::-webkit-scrollbar-track{background-color: var(--second-green);}  
+
+/*----sidebar-----------------------------------*/
+body > :first-child{
+    background-color: rgb(17, 39, 26);
+    height: 100%;
+    width: 22%;
+    position: fixed;
+    top: 0;
+    overflow-x: hidden;
+}
+
+body > :first-child::-webkit-scrollbar{width: 20px;}
+body > :first-child::-webkit-scrollbar-thumb{
+    background-color: rgb(88, 135, 106);
+    border-radius: 0.25em;
+}  
+body > :first-child::-webkit-scrollbar-track{background-color: var(--second-green);} 
+
+.contents{padding: 25px 15px 50px;}
+.contents a{
+    display: block;
+    width: 100%;
+    padding: 0 15px 5px;
+    text-decoration: none;
+    font-family: var(--font);
+    border-radius: 3px;
+}
+.a{margin-left: 5%;}
+.contents a:hover{
+    background-color: rgb(18, 94, 47);
+    color: blanchedalmond;
+}
+.contents a:nth-child(1){text-align: center;}
+
+.doc{
+    margin-top: 5%;
+    margin-left: 28%;
+    margin-right: 13%;
+}
+span:first-child{
+    color: blanchedalmond;
+    -webkit-text-stroke: 1.5px black;
+    font-size: 2.2em;
+    font-family: 'Press Start 2P', cursive;
+}
+span:first-child ~ span{
+    color: blanchedalmond;
+    -webkit-text-stroke: 1px black;
+    font-size: 1.4em;
+    font-family: 'Press Start 2P', cursive;
+}
+
+table{width: 100%;}
+table td{
+    padding: 8px;
+    border: none !important;
+}
+table td:first-child{
+    color: rgb(217, 250, 230);
+    font-weight: 600;
+}
+table tr:nth-child(odd){background-color: var(--second-green);}
+table tr:nth-child(even){background-color: var(--third-green);}
+
+table th{border-style: solid;}
+
+
+textarea{
+    width: 100%;
+    padding: 2%;
+    overflow: hidden;
+    border: none;
+    background-color: rgb(2, 37, 24);
+    color: white;
+    font-size: 0.9rem;
+    resize: none;
+    border-radius: 6px;
+    outline:0px none transparent;
+}
