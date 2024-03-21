@@ -1,0 +1,21 @@
+@media only screen and (min-width: 768px){}
+@media only screen and (min-width: 1200px){
+    .overlay{display: block;}
+    .openbtn, .closebtn{display: none;}
+    body > :first-child{
+        overflow-x: hidden;
+        width: 22%;
+        top: 0;
+    }
+    body > :first-child::-webkit-scrollbar{width: 20px;}
+    body > :first-child::-webkit-scrollbar-thumb{
+        background-color: rgb(142, 133, 119);
+        border-radius: 0.25em;
+    }
+    body > :first-child::-webkit-scrollbar-track{background-color: var(--second-green);}
+    .doc{
+        margin-top: 5%;
+        margin-left: 28%;
+        margin-right: 13%;
+    }
+}

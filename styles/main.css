@@ -16,6 +16,7 @@ html{scroll-behavior: smooth;}
 }
 
 body{
+    box-sizing: border-box;
     margin: 0;
     margin-bottom: 50px;
     background-color: var(--main-green);
@@ -27,43 +28,46 @@ body p:nth-child(1), a{
     text-shadow: 3px 3px 5px rgb(5, 35, 16);
 }
 p:nth-child(1){font-family: var(--font);}
+
+.overlay{display: none;}
+.openbtn{
+    display: block;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-color: black;
+}
+body > :first-child{
+    background-color: rgb(17, 39, 26);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow-y: scroll;
+}
+
 .imp-p{
     font-size: 2.4rem;
     color: var(--font-color)!important;
     text-align: center;
 }
-.imp-side{
-    width: 100%;
-    font-size: 1.4rem;
-    color: var(--font-color);
-}
 .a{margin-left: 5%;}
+
 body::-webkit-scrollbar{width: 20px}
 body::-webkit-scrollbar-thumb{
-    background-color: rgb(88, 135, 106);
+    background-color: rgb(142, 133, 119);
     border-radius: 5px;
-}  
-body::-webkit-scrollbar-track{background-color: var(--second-green);}  
+}
+body::-webkit-scrollbar-track{background-color: var(--second-green);}
 
-/*----sidebar-----------------------------------*/
-body > :first-child{
-    background-color: rgb(17, 39, 26);
-    height: 100%;
-    width: 22%;
-    position: fixed;
-    top: 0;
-    overflow-x: hidden;
+.doc{
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
-body > :first-child::-webkit-scrollbar{width: 20px;}
-body > :first-child::-webkit-scrollbar-thumb{
-    background-color: rgb(88, 135, 106);
-    border-radius: 0.25em;
-}  
-body > :first-child::-webkit-scrollbar-track{background-color: var(--second-green);} 
-
-.contents{padding: 25px 15px 50px;}
-.contents a{
+nav{padding: 25px 10px 50px 0;}
+nav a{
     display: block;
     width: 100%;
     padding: 0 15px 5px;
@@ -71,18 +75,24 @@ body > :first-child::-webkit-scrollbar-track{background-color: var(--second-gree
     font-family: var(--font);
     border-radius: 3px;
 }
-.a{margin-left: 5%;}
-.contents a:hover{
+nav > a{
+    width: 100%;
+    font-size: 1.4rem;
+    color: var(--font-color);
+}
+ul{
+    margin: 0;
+    padding-left: 15px;
+}
+li{list-style-type: none;}
+nav a:hover{
     background-color: rgb(18, 94, 47);
     color: blanchedalmond;
 }
-.contents a:nth-child(1){text-align: center;}
 
-.doc{
-    margin-top: 5%;
-    margin-left: 28%;
-    margin-right: 13%;
-}
+
+
+p, .p{font-size: 1.2em;}
 span:first-child{
     color: blanchedalmond;
     -webkit-text-stroke: 1.5px black;
@@ -109,7 +119,6 @@ table tr:nth-child(odd){background-color: var(--second-green);}
 table tr:nth-child(even){background-color: var(--third-green);}
 
 table th{border-style: solid;}
-
 
 textarea{
     width: 100%;

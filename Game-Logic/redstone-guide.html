@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../../styles/ms-doc.css">
+  <link rel="stylesheet" href="../../styles/mediaqueries/ms-doc.css">
+  <script src="bgColor.js" defer></script>
+  <title>Redstone Guide</title>
+</head>
+<body>
+  <div class="navigation">
+    <div class="ms-doc">
+      <p class="ms">Une simple traduction du site de Microsoft <a target="_blank" href="https://learn.microsoft.com/en-us/minecraft/creator/?view=minecraft-bedrock-stable"><img class="ms-logo" src="/assets/img/Microsoft-logo.png" alt=""></a></p>
+      <a class="ms-doc-link" target="_blank" href="https://learn.microsoft.com/en-us/minecraft/creator/documents/redstoneguide?view=minecraft-bedrock-stable#main">Redstone Guide</a>
+    </div>
+    <nav></nav>
+    <a href="index.html"><img class="floatinghouse" src="/assets/img/floatinghouse.avif" alt=""></a>
+  </div>
+  <div class="doc">
+    <h1>Un guide sur la Redstone</h1>
+
+    <h2>Principes de base de la Redstone</h2>
+    <p>Qu'est-ce que la redstone ? C'est un peu comme des circuits électriques dans Minecraft. <br>
+      Comme pour les circuits électriques, il est possible de construire des machines incroyablement sophistiquées 
+      en combinant de simples connexions et interrupteurs entre les composants.
+    </p>
+    <h3>Utilisation des torches de redstone, de blocs de redstone et de la poudre de redstone</h3>
+    <p>Il est possible d'alimenter la plupart des dispositifs de redstone, comme une lampe de redstone, en plaçant une torche de redstone sur un bloc adjacent.
+      Placer la torche sur la lampe elle-même ne l'alimentera pas mais placer un bloc de redstone sur la lampe l'alimentera.
+    </p>
+    <img src="/assets/img/torch_block_basics.png" alt="">
+    <p>La poudre de redstone agit comme un conduit entre une source d'alimentation et un composant. <br>
+      Au fur et à mesure que le signal d'énergie s'éloigne de la source d'énergie, il s'affaiblit à un rythme prévisible. <br> 
+      Le signal de redstone sortant d'une source d'énergie commence à 15 et diminue de 1 pour chaque bloc où la ligne de poussière de redstone est étendue.
+    </p>
+    <p class="xp">Expérience pour tester : </p>
+    <ol>
+      <li>Obtenir de la poudre de redstone et une torche de redstone.</li>
+      <li>Placer une poignée de poudre de redstone sur le sol. Elle forme une tache rouge foncé.</li>
+      <li>Placer une torche de redstone à côté du blob. Le blob de redstone s'illuminera et s'alignera pour pointer vers la torche. Sympa !</li>
+      <li>Placer plus de poudre de redstone pour continuer la ligne dans une direction. On remarque que la lueur s'estompe à mesure qu'on s'éloigne de la torche.</li>
+      <li>Prolonger la ligne d'au moins 15 blocs.</li>
+      <img src="/assets/img/signal_strength_line.png" alt="">
+      <li>Obtenir un piston et le placer n'importe où autour de l'extrémité sombre de la ligne de redstone. Les pistons ne feront rien si le signal est trop faible pour faire briller la redstone qui touche le piston.</li>
+      <img src="/assets/img/inactive_pistons.png" alt="">
+      <li>Placer un autre piston à côté de la partie incandescente de la redstone. Cela devrait l'étendre.</li>
+      <img src="/assets/img/active_pistons.png" alt="">
+      <li>On peut également ajouter une autre torche de redstone pour augmenter la puissance.</li>
+      <img src="/assets/img/booster_torch.png" alt="">
+    </ol>
+    <h3>Faits aléatoires concernant la poudre de redstone, la torche et le bloc, sans ordre particulier</h3>
+    <ul>
+      <li>Un blob de poudre de redstone alimente tous les blocs qui l'entourent et le bloc sur lequel il est placé.</li>
+      <li>Les blocs de redstone et les torches de redstone ont chacun une force de signal de 15.</li>
+      <li>L'énergie rayonne d'une torche de redstone dans toutes les directions, comme le montre cette grille alimentée par une torche de redstone.</li>
+    </ul>
+    <img src="/assets/img/signal_strength_grid.png" alt="">
+    <ul>
+      <li>Une torche de redstone alimente le bloc situé au-dessus d'elle, reçoit le signal de redstone de ce bloc et alimente tous les composants de redstone adjacents, y compris au-dessus et au-dessous de la torche.</li>
+      <li>Une torche de redstone n'alimente pas le bloc sur lequel elle est placée. Placer une torche de redstone sur un bloc alimenté désactivera le bloc.</li>
+      <li>La torche ou le bloc de redstone doit se trouver à côté ou en dessous du piston pour l'alimenter. Placer la torche ou le bloc devant le piston ne l'alimentera pas.</li>
+      <li>Les torches de redstone n'alimentent pas le bloc sur lequel elles se trouvent. Par exemple, placer une torche de redstone sur un piston ne l'alimentera pas, mais placer un bloc de redstone sur un piston l'alimentera.</li>
+      <li>Une torche de redstone peut être désactivée en alimentant le bloc sur lequel elle est placée.</li>
+      <li>La puissance d'une torche de redstone est continue. L'énergie peut également être transmise sous forme d'impulsions appelées "ticks" et il existe des moyens de varier le rythme.</li>
+    </ul>
+
+    <h2>Tick du Temps et Tick de Redstone</h2>
+    <p>Dans Minecraft, le terme pour désigner le temps qui passe est "ticks" et le temps s'écoule à raison de 20 ticks par seconde. Les signaux Redstone passent à la vitesse de 10 ticks par seconde. En contrôlant la vitesse des ticks, on peut contrôler la vitesse à laquelle un composant effectue une action. Ainsi, lorsque l'on expérimente la façon dont les différents composants sont alimentés, on garde à l'esprit que la puissance n'a pas besoin d'être continue.</p>
+    <h3>Composants qui émettent de la puissance de redstone</h3>
+    <p>Il s'agit de choses qui peuvent alimenter des composants en redstone même s'il n'y a pas de redstone dans leurs recettes.</p>
+    <ul>
+      <li>Bouton : Appuyer pour obtenir une brève impulsion d'énergie.</li>
+      <li>Levier : Permet d'activer ou de désactiver l'intensité totale du signal.</li>
+      <li>Plaque de pression, en bois ou en pierre : Envoie une impulsion d'énergie lorsque l'on appuye ou marche dessus. Elles peuvent également être activées par les mobs qui marchent dessus. Des mobs différents peuvent activer les plaques de pression à des intensités différentes. Par exemple, l'intensité du signal émis lorsqu'un creeper marche sur la plaque est plus faible que celle émise lorsqu'un golem de fer marche dessus. Lorsque le joueur ou le mob quitte la plaque, celle-ci se désactive après 5 ticks de redstone. Une plaque de pression en bois s'active également si un objet tombe dessus.</li>
+      <li>Plaque de pression lestée, en fer ("lourde") ou en or ("légère") : L'intensité du signal augmente avec le nombre d'entités (joueurs, mobs ou items) qui se trouvent sur la plaque. Les plaques légères nécessitent moins d'objets que les plaques lourdes pour obtenir une puissance de signal maximale.</li>
+      <li>Crochet : Émet une force de signal lorsque le fil est activé (déclenché).</li>
+      <li>Pupitre avec un livre dessus : Émet une impulsion d'énergie lorsque l'on tourne les pages.</li>
+    </ul>
+
+    <h2>Composants communs de redstone</h2>
+    <ul>
+      <li>Piston et piston collant : Ils restent étendus aussi longtemps qu'ils sont alimentés. Un piston peut pousser jusqu'à 12 blocs. Les pistons collants peuvent ramener le bloc collé à eux. Les pistons ont besoin d'un tic pour s'étendre et de zéro tic pour se rétracter.</li>
+      <li>Répéteur : Placer le long d'une ligne de poudre de redstone pour continuer le signal. Tant que le répéteur reçoit un signal de 1 ou plus, il émet le niveau maximum de 15. Les répéteurs de redstone n'alimentent que la poudre ou le composant situé directement devant eux. Ils ont un retard intégré de 1 tick et peuvent être activés pour étendre le retard jusqu'à 4 ticks. Si le délai de l'impulsion d'entrée est plus court que le délai réglé sur le répéteur, ce dernier prolongera l'impulsion. Par exemple, si on achemine une impulsion de 1 tic dans un répéteur de 4 tic, l'impulsion sera prolongée à 4 tic.</li>
+      <img src="/assets/img/repeater.png" alt="">
+      <li>Comparateur : Contrairement à un répéteur, le comparateur émet la même intensité du signal que celle qui arrive à l'arrière. Les comparateurs reçoivent également un signal qui passe sur le côté et le comparent à l'intensité du signal qui arrive à l'arrière. En mode normal (lorsque la lumière n'est PAS allumée), il n'émettra pas de signal si l'intensité du signal entrant sur le côté est plus forte que l'intensité du signal entrant à l'arrière. Si le comparateur de redstone est en mode soustraction (ce qui signifie que la lumière est allumée), il soustrait l'intensité du signal qui arrive sur le côté de l'intensité du signal qui arrive à l'arrière et émet le résultat. Ainsi, si un signal d'une intensité de 10 passe par un comparateur en mode soustraction (lumière allumée) et que nous introduisons un signal d'une intensité de 7, le comparateur émettra un signal d'une intensité de 3.</li>
+      <img src="/assets/img/comparator1.png" alt="">
+      (Toujours se rappeler que le signal commence à 15 et diminue de 1 pour chaque segment de la poudre de redstone).
+      <li>Observateur : Il a deux faces : la face observateur et la face sortie. Lorsque la face détecte une mise à jour du bloc, elle émet un signal à l'arrière.</li>
+      <li>Capteur de lumière : Il produit différents niveaux de puissance en fonction du niveau de lumière qu'il détecte. Il peut être inversé pour émettre de la lumière lorsqu'il détecte l'obscurité. Pour l'inverser, il faut cliquer dessus avec le bouton droit de la souris. Il deviendra bleu.</li>
+      <li>Dropper : Crache un objet aléatoire de son inventaire lorsqu'il est alimenté directement ou par un bloc adjacent. Par exemple, s'il est chargé d'un œuf spawn de cheval, il laisse tomber un œuf spawn de cheval lorsqu'il est activé. S'il est chargé de flèches, il crache une flèche.</li>
+      <li>Dispenser : Fonctionne comme le dropper, mais possède des pouvoirs spéciaux en fonction des objets qu'il contient. Par exemple, s'il est chargé d'un œuf spawn de cheval, il distribue un cheval. S'il est chargé de flèches, il tirera une flèche. Les autres objets ayant un comportement spécial sont les porte-armures, les bateaux, la poudre d'os, les potions et les seaux.</li>
+      <li>Observateur : Lorsqu'il détecte des mises à jour de blocs avec son visage, il envoie une impulsion d'un tick par le biais du point rouge situé sur le dos. Les observateurs émettent une impulsion lorsqu'ils sont déplacés par des pistons.</li>
+      <li>Coffre piégé : S'active à l'ouverture. Le signal varie en fonction du nombre de joueurs qui consultent le contenu.</li>
+      <li>Bloc-notes : Joue une note lorsqu'il reçoit un signal.</li>
+      <li>Lampe de redstone : Produit de la lumière lorsqu'elle est alimentée.</li>
+      <li>TNT : S'active lorsqu'elle est alimentée directement ou par un bloc alimenté adjacent. La durée de la fusée est de 40 ticks de redstone.</li>
+    </ul>
+  </div>
+</body>
+</html>

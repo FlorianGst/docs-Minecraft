@@ -2,48 +2,62 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="main.css">
-  <!---->
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/mediaqueries/main.css">
+  <script src="/bgColor.js" defer></script>
   <title>Molang docs</title>
 </head>
 <body>
-  <div>
-    <div class="contents">
-      <a class="imp-side" href="#Why Does Molang Exist?"> Why Does Molang Exist?</a>
-      <a class="imp-side" href="#Lexical Structure"> Lexical Structure</a>
-      <a class="a" href="#Case Sensitivity"> Case Sensitivity</a>
-      <a class="a" href="#Keywords"> Keywords</a>
-      <a class="a" href="#Operator Precedence"> Operator Precedence</a>
-      <a class="a" href="#Variables"> Variables</a>
-      <a class="a" href="#Values"> Values</a>
-      <a class="a" href="#Query Functions"> Query Functions</a>
-      <a class="a" href="#Aliases"> Aliases</a>
-      <a class="a" href="#Structs"> Structs</a>
-      <a class="a" href="#Strings"> Strings</a>
-      <a class="a" href="#Math Functions"> Math Functions</a>
-      <a class="a" href="#->  Arrow Operator"> ->  Arrow Operator</a>
-      <a class="a" href="#{ } Brace Scope Delimiters"> { } Brace Scope Delimiters</a>
-      <a class="a" href="#Conditionals"> Conditionals</a>
-      <a class="a" href="#loop"> loop</a>
-      <a class="a" href="#for_each"> for_each</a>
-      <a class="a" href="#break"> break</a>
-      <a class="a" href="#continue"> continue</a>
-      <a class="a" href="#?? Null Coalescing Operator"> ?? Null Coalescing Operator</a>
-      <a class="a" href="#Simple vs Complex Expressions"> Simple vs Complex Expressions</a>
-      <a class="a" class="imp-side" href="#Domain Examples">Domain Examples</a>
-      <a class="a" href="#Entity Definition Scripts"> Entity Definition Scripts</a>
-      <a class="a" href="#Animation and Animation Controller Files"> Animation and Animation Controller Files</a>
-      <a class="a" href="#Render Controllers"> Render Controllers</a>
-      <a class="imp-side" href="#Second Query Functions">Query Functions</a>
-      <a class="a" href="#List of Entity Queries"> List of Entity Queries</a>
-      <a class="a" href="#List of Experimental Entity Queries"> List of Experimental Entity Queries</a>
-      <a class="imp-side" href="#Experimental Operators">Experimental Operators</a>
-      <a class="imp-side" href="#Versioned Changes">Versioned Changes</a>
-      <a class="a" href="#Versioned Change Versions"> Versioned Change Versions</a>
-    </div>
+  <div id="navigation" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNavigation()">&times;</a>
+    <nav>
+      <a href="#Why Does Molang Exist?"> Why Does Molang Exist?</a>
+      <a href="#Lexical Structure"> Lexical Structure</a>
+      <ul>
+        <li><a href="#Case Sensitivity"> Case Sensitivity</a></li>
+        <li><a href="#Keywords"> Keywords</a></li>
+        <li><a href="#Operator Precedence"> Operator Precedence</a></li>
+        <li><a href="#Variables"> Variables</a></li>
+        <li><a href="#Values"> Values</a></li>
+        <li><a href="#Query Functions"> Query Functions</a></li>
+        <li><a href="#Aliases"> Aliases</a></li>
+        <li><a href="#Structs"> Structs</a></li>
+        <li><a href="#Strings"> Strings</a></li>
+        <li><a href="#Math Functions"> Math Functions</a></li>
+        <li><a href="#->  Arrow Operator"> ->  Arrow Operator</a></li>
+        <li><a href="#{ } Brace Scope Delimiters"> { } Brace Scope Delimiters</a></li>
+        <li><a href="#Conditionals"> Conditionals</a></li>
+        <li><a href="#loop"> loop</a></li>
+        <li><a href="#for_each"> for_each</a></li>
+        <li><a href="#break"> break</a></li>
+        <li><a href="#continue"> continue</a></li>
+        <li><a href="#?? Null Coalescing Operator"> ?? Null Coalescing Operator</a></li>
+        <li><a href="#Simple vs Complex Expressions"> Simple vs Complex Expressions</a></li>   
+      </ul>
+      <a href="#Domain Examples">Domain Examples</a> 
+      <ul>
+        <li><a href="#Entity Definition Scripts"> Entity Definition Scripts</a></li>
+        <li><a href="#Animation and Animation Controller Files"> Animation and Animation Controller Files</a></li>
+        <li><a href="#Render Controllers"> Render Controllers</a></li>  
+      </ul>
+      <a href="#Second Query Functions">Query Functions</a>
+      <ul>
+        <li><a class="a" href="#List of Entity Queries"> List of Entity Queries</a></li>
+        <li><a class="a" href="#List of Experimental Entity Queries"> List of Experimental Entity Queries</a></li>
+      </ul>
+      <a href="#Experimental Operators">Experimental Operators</a>
+      <a href="#VersionedChanges">Versioned Changes</a>
+      <ul><li><a class="a" href="#Versioned Change Versions"> Versioned Change Versions</a></li></ul>
+    </nav>
+
+    <script>
+      function openNavigation() {document.getElementById("navigation").style.display = "block";}
+      function closeNavigation() {document.getElementById("navigation").style.display = "none";}
+    </script>
   </div>
+  <span class="openbtn" style="font-size:60px;" onclick="openNavigation()">&#9776; open</span>
   <div class="doc">
-    <span class="title">MOLANG DOCUMENTATION</span><br><br><span>Version: 1.19.20.2</span><br><br><br>
+    <span class="title">MOLANG DOCUMENTATION</span><br><br><span>Version: 1.20.70.24</span><br><br><br>
   
     <br><h1><p id="Why Does Molang Exist?">Why Does Molang Exist?</p></h1>
     <p>Molang is a simple expression-based language designed for fast, data-driven calculation of values 
@@ -170,11 +184,11 @@
 
     <h1><p id="Operator Precedence">Operator Precedence</p></h1>
 
-    Molang Operators follow this order to determine which thing is evaluated first when no parentheses are used. 
-    This should match the behavior of C or C++. Operators that are higher in this table are evaluated first, while
-    operators on the same row are evaluated with the same priority. When operators have the same priority, they are
-    evaluated left-to-right, except for the Ternary conditional operator, which is evaluated right-to-left. 
-    Using parentheses will allow direct control of order of evaluation, and is recommended for more complex expressions. <br><br>
+    <p>Molang Operators follow this order to determine which thing is evaluated first when no parentheses are used. 
+      This should match the behavior of C or C++. Operators that are higher in this table are evaluated first, while
+      operators on the same row are evaluated with the same priority. When operators have the same priority, they are
+      evaluated left-to-right, except for the Ternary conditional operator, which is evaluated right-to-left. 
+      Using parentheses will allow direct control of order of evaluation, and is recommended for more complex expressions.</p><br>
 
     <table>
       <tr> 
@@ -229,27 +243,27 @@
   
     <h1><p id="Variables">Variables</p></h1>
   
-    There are three variable lifetimes a variable may belong to: Temporary, Entity, and Context:</br>
-    - Temporary variables (eg: `temp.moo = 1;`) are read/write and valid for the scope they are defined in, as per C rules.  
-    For performance reasons their lifetime is global to the current expression execution and may return a valid
-    value outside of the outermost scope they are defined in for an expression.  Be careful in complex expressions.
-    We will be adding content errors for invalid accesses as soon as possible.</br>
-    - Entity variables (eg: `variable.moo = 1;`) are read/write and store their value on the entity for the lifetime of
-    that entity.  Note that these are currently not saved, so quitting and reloading the world will re-initialize these.
-    In the same way, if the entity is despawned, any variables on the entity will be lost.</br>
-    - Context variables (eg: `context.moo`) are read-only and specified by the game in certain situations.
-    Details on what variables are specified and when will be available in the documentation of the area
-    where that Molang expression is used (such as behaviours defining what context variables they expose).</br>
+    <p>There are three variable lifetimes a variable may belong to: Temporary, Entity, and Context:</br>
+      - Temporary variables (eg: `temp.moo = 1;`) are read/write and valid for the scope they are defined in, as per C rules.  
+      For performance reasons their lifetime is global to the current expression execution and may return a valid
+      value outside of the outermost scope they are defined in for an expression.  Be careful in complex expressions.
+      We will be adding content errors for invalid accesses as soon as possible.</br>
+      - Entity variables (eg: `variable.moo = 1;`) are read/write and store their value on the entity for the lifetime of
+      that entity.  Note that these are currently not saved, so quitting and reloading the world will re-initialize these.
+      In the same way, if the entity is despawned, any variables on the entity will be lost.</br>
+      - Context variables (eg: `context.moo`) are read-only and specified by the game in certain situations.
+      Details on what variables are specified and when will be available in the documentation of the area
+      where that Molang expression is used (such as behaviours defining what context variables they expose).</br></p>
   
     <h1><p id="Values">Values</p></h1>
   
-    </br>- All numerical values are floats.</br>- Boolean values such as actor flags are converted and stored
-     as a float value of either 0.0 or 1.0 for values of false or true respectively.</br>
-     - For boolean tests, a float value equivalent to 0.0 is false, and anything not equal to 0.0 is true.</br>
-     - For array indices, floats are C-style-cast to ints, and clamped at zero for negative values or wrapped
-      by the array size for large values.</br>- Other supported types are:</br>
+    <p>- All numerical values are floats.</br>- Boolean values such as actor flags are converted and stored
+      as a float value of either 0.0 or 1.0 for values of false or true respectively.</br>
+      - For boolean tests, a float value equivalent to 0.0 is false, and anything not equal to 0.0 is true.</br>
+      - For array indices, floats are C-style-cast to ints, and clamped at zero for negative values or wrapped
+       by the array size for large values.</br>- Other supported types are:</br></p>
   
-    <br/><textarea readonly="true" cols="50" rows="8">
+    <textarea readonly="true" cols="50" rows="8">
       Geometry
       Texture
       Material
@@ -259,20 +273,20 @@
       Struct (see 'structs' section below)
     </textarea> </br>
   
-    - Errors (such as divide by zero, missing variables, null references, etc) generally return a value of 0.0.</br>
+    <p>- Errors (such as divide by zero, missing variables, null references, etc) generally return a value of 0.0.</br></p>
   
     <br><br>
   
     <h1><p id="Query Functions">Query Functions</p></h1>
   
-    Query functions (eg: `query.is_baby` or `query.is_item_equipped('main_hand')`) allow expressions to read game data.
+    <p>Query functions (eg: `query.is_baby` or `query.is_item_equipped('main_hand')`) allow expressions to read game data.
       If a query function takes no arguments, do not use parentheses. Otherwise, use parentheses and separate arguments
-       with commas. For a full list of query functions, see below.</br>
+       with commas. For a full list of query functions, see below.</br></p>
   
     <h1><p id="Aliases">Aliases</p></h1>
   
-    To reduce typing burden and increase clarity when reading and writing Molang, the following keyword aliases can make
-     life a bit easier.  Note that left and right sides function identically.</br>
+    <p>To reduce typing burden and increase clarity when reading and writing Molang, the following keyword aliases can make
+      life a bit easier.  Note that left and right sides function identically.</br></p>
   
     <h2><p id="Alias Mapping">Alias Mapping</p></h2>
   
@@ -296,17 +310,17 @@
       </tr>
     </table><br>
   
-    As an example...
+    <div class="p">As an example...</div>
     <br/><textarea readonly="true" cols="70" rows="2">
     math.cos(query.anim_time * 38) * variable.rotation_scale + variable.x * variable.x * query.life_time;
     </textarea> </br><br>
   
-    ...can also be written as:
+    <div class="p">...can also be written as:</div>
     <br/><textarea readonly="true" cols="70" rows="2">
     math.cos(q.anim_time * 38) * v.rotation_scale + v.x * v.x * q.life_time
     </textarea> </br><br>
   
-    Either syntax will work, and can be intermixed as desired. eg:
+    <div class="p">Either syntax will work, and can be intermixed as desired. eg:</div>
     <br/><textarea readonly="true" cols="70" rows="2">
     math.cos(q.anim_time * 38) * variable.rotation_scale + v.x * variable.x * query.life_time
     </textarea> </br>
@@ -315,8 +329,8 @@
   
     <h1><p id="Structs">Structs</p></h1>
   
-    Structures of data, unlike C, are implicitly defined by usage.  Their purpose is to more efficiently pass data around,
-     such as passing `v.location` rather than `v.x`, `v.y`, and `v.z`.  eg:</br>
+    <p>Structures of data, unlike C, are implicitly defined by usage.  Their purpose is to more efficiently pass data around,
+      such as passing `v.location` rather than `v.x`, `v.y`, and `v.z`.  eg:</br></p>
   
     <br><textarea readonly="true" cols="70" rows="5">
     v.location.x = 1;
@@ -325,7 +339,7 @@
     v.another_mobs_location = v.another_mob_set_elsewhere->v.location;
     </textarea> </br>
   
-    For some more usage examples, each of the following expressions return 1.23</br>
+    <p>For some more usage examples, each of the following expressions return 1.23</br></p>
   
     <br><textarea readonly="true" cols="70" rows="2">
     v.cowcow.friend = v.pigpig; v.pigpig->v.test.a.b.c = 1.23; return v.cowcow.friend->v.test.a.b.c;
@@ -347,17 +361,17 @@
     v.cowcow.friend = v.pigpig; v.pigpig->v.test.a.b.c = 1.23; v.moo = v.cowcow.friend->v.test.a.b.c; return v.moo;
     </textarea> </br>
   
-    Note that structures can be arbitrarily deep in their nesting/recursiveness.  That said, it is recommended that 
-    you don't copy full structures inside other structures to avoid exploding memory, and not making structures too deep
-     as there is a slight performance cost for each layer.</br>
+    <p>Note that structures can be arbitrarily deep in their nesting/recursiveness.  That said, it is recommended that 
+      you don't copy full structures inside other structures to avoid exploding memory, and not making structures too deep
+       as there is a slight performance cost for each layer.</br></p>
   
     <br><br>
   
     <h1><p id="Strings">Strings</p></h1>
   
-    Strings in Molang are surrounded by single quotes.Eg: `'minecraft:pig'` or `'hello world!'`. An empty string is 
-    defined as two consecutive single quotes.  String operations only support `==` and `!=` at this time.</br>
-    Note: strings don't support the ' character as there is no support for escape characters at this time.</br>
+    <p>Strings in Molang are surrounded by single quotes.Eg: `'minecraft:pig'` or `'hello world!'`. An empty string is 
+      defined as two consecutive single quotes.  String operations only support `==` and `!=` at this time.</br>
+      Note: strings don't support the ' character as there is no support for escape characters at this time.</br></p>
   
     <h1><p id="Math Functions">Math Functions</p></h1>
   
@@ -365,131 +379,131 @@
       <tr> <th>Function</th> <th>Description</th> </tr>
       <tr>
         <td>`math.abs(value)`</td>
-        <td>Absolute value of value</br></td>
+        <td>Absolute value of value</td>
       </tr>
       <tr>
         <td>`math.acos(value)`</td>
-        <td>arccos of value</br></td>
+        <td>arccos of value</td>
       </tr>
       <tr>
         <td>`math.asin(value)`</td>
-        <td>arcsin of value</br></td>
+        <td>arcsin of value</td>
       </tr>
       <tr>
         <td>`math.atan(value)`</td>
-        <td>arctan of value</br></td>
+        <td>arctan of value</td>
       </tr>
       <tr>
         <td>`math.atan2(y, x)`</td>
-        <td>arctan of y/x.  NOTE: the order of arguments!</br></td>
+        <td>arctan of y/x.  NOTE: the order of arguments!</td>
       </tr>
       <tr>
         <td>`math.ceil(value)`</td>
-        <td>Round value up to nearest integral number</br></td>
+        <td>Round value up to nearest integral number</td>
       </tr>
       <tr>
         <td>`math.clamp(value, min, max)`</td>
-        <td>Clamp value to between min and max inclusive</br></td>
+        <td>Clamp value to between min and max inclusive</td>
       </tr>
       <tr>
         <td>`math.cos(value)`</td>
-        <td>Cosine (in degrees) of value</br></td>
+        <td>Cosine (in degrees) of value</td>
       </tr>
       <tr>
         <td>`math.die_roll(num, low, high)`</td>
         <td>returns the sum of 'num' random numbers, each with a value from low to high`.  
-        Note: the generated random numbers are not integers like normal dice.  For that, use `math.die_roll_integer`.</br></td>
+        Note: the generated random numbers are not integers like normal dice.  For that, use `math.die_roll_integer`.</td>
       </tr>
       <tr>
         <td>`math.die_roll_integer(num, low, high)`</td>
         <td>returns the sum of 'num' random integer numbers, each with a value from low to high`.  
-        Note: the generated random numbers are integers like normal dice.</br></td>
+        Note: the generated random numbers are integers like normal dice.</td>
       </tr>
       <tr>
         <td>`math.exp(value)`</td>
-        <td>Calculates e to the value'th power</br></td>
+        <td>Calculates e to the value'th power</td>
       </tr>
       <tr>
         <td>`math.floor(value)`</td>
-        <td>Round value down to nearest integral number</br></td>
+        <td>Round value down to nearest integral number</td>
       </tr>
       <tr>
         <td>`math.hermite_blend(value)`</td>
         <td>Useful for simple smooth curve interpolation using one of the Hermite Basis functions: `3t^2 - 2t^3`.
-          Note that while any valid float is a valid input, this function works best in the range [0,1].</br></td>
+          Note that while any valid float is a valid input, this function works best in the range [0,1].</td>
       </tr>
       <tr>
         <td>`math.lerp(start, end, 0_to_1)`</td>
-        <td>Lerp from start to end via 0_to_1</br></td>
+        <td>Lerp from start to end via 0_to_1</td>
       </tr>
       <tr>
         <td>`math.lerprotate(start, end, 0_to_1)`</td>
-        <td>Lerp the shortest direction around a circle from start degrees to end degrees via 0_to_1</br></td>
+        <td>Lerp the shortest direction around a circle from start degrees to end degrees via 0_to_1</td>
       </tr>
       <tr>
         <td>`math.ln(value)`</td>
-        <td>Natural logarithm of value</br></td>
+        <td>Natural logarithm of value</td>
       </tr>
       <tr>
         <td>`math.max(A, B)`</td>
-        <td>Return highest value of A or B</br></td>
+        <td>Return highest value of A or B</td>
       </tr>
       <tr>
         <td>`math.min(A, B)`</td>
-        <td>Return lowest value of A or B</br></td>
+        <td>Return lowest value of A or B</td>
       </tr>
       <tr>
         <td>`math.min_angle(value)`</td>
-        <td>Minimize angle magnitude (in degrees) into the range [-180, 180)</br></td>
+        <td>Minimize angle magnitude (in degrees) into the range [-180, 180)</td>
       </tr>
       <tr>
         <td>`math.mod(value, denominator)`</td>
-        <td>Return the remainder of value / denominator</br></td>
+        <td>Return the remainder of value / denominator</td>
       </tr>
       <tr>
         <td>`math.pi`</td>
-        <td>Returns the float representation of the constant pi.</br></td>
+        <td>Returns the float representation of the constant pi.</td>
       </tr>
       <tr>
         <td>`math.pow(base, exponent)`</td>
-        <td>Elevates `base` to the `exponent`'th power</br></td>
+        <td>Elevates `base` to the `exponent`'th power</td>
       </tr>
       <tr>
         <td>`math.random(low, high)`</td>
-        <td>Random value between low and high inclusive</br></td>
+        <td>Random value between low and high inclusive</td>
       </tr>
       <tr>
         <td>`math.random_integer(low, high)`</td>
-        <td>Random integer value between low and high inclusive</br></td>
+        <td>Random integer value between low and high inclusive</td>
       </tr>
       <tr>
         <td>`math.round(value)`</td>
-        <td>Round value to nearest integral number</br></td>
+        <td>Round value to nearest integral number</td>
       </tr>
       <tr>
         <td>`math.sin(value)`</td>
-        <td>Sine (in degrees) of value</br></td>
+        <td>Sine (in degrees) of value</td>
       </tr>
       <tr>
         <td>`math.sqrt(value)`</td>
-        <td>Square root of value</br></td>
+        <td>Square root of value</td>
       </tr>
       <tr>
         <td>`math.trunc(value)`</td>
-        <td>Round value towards zero</br></td>
+        <td>Round value towards zero</td>
       </tr>
     </table>
   
     <h1><p id="->  Arrow Operator">->  Arrow Operator</p></h1>
   
-    Some return values of query function, or values stored in temp/entity/context variables can be a reference to another entity.
-    The `->` operator allows an expression to access variables or run queries on that entity.  
-    For example, the example below will find all pigs within four metres of the current entity(including itself if it's a pig),
-      and increment a variable `v.x` on itself if the block immediately above each pig is flammable(such as an oak button) :</br>
-      Note that in the case where the lef side of the `->` operator has an error (value is null, the entity was killed
-      previously, or some other issue), the expression will not evaluate the righ side and will return 0. 
-      This implementation style was a choice between performance and not requiring content creators to overly worry about
-      checking for potentially bad values everywhere.</br></br>
+    <p>Some return values of query function, or values stored in temp/entity/context variables can be a reference to another entity.
+      The `->` operator allows an expression to access variables or run queries on that entity.  
+      For example, the example below will find all pigs within four metres of the current entity(including itself if it's a pig),
+        and increment a variable `v.x` on itself if the block immediately above each pig is flammable(such as an oak button) :</br>
+        Note that in the case where the lef side of the `->` operator has an error (value is null, the entity was killed
+        previously, or some other issue), the expression will not evaluate the righ side and will return 0. 
+        This implementation style was a choice between performance and not requiring content creators to overly worry about
+        checking for potentially bad values everywhere.</br></p>
     <br><textarea readonly="true" cols="70" rows="7">
   
     "v.x = 0;
@@ -501,10 +515,10 @@
   
     <h2><p id="Public Variables">Public Variables</p></h2>
   
-    In general, variables of a mob are considered private to that mob and cannot be accessed by another.  
-    To expose read-only access of a variable to other mobs, you need to set the 'public' setting on that variable in
-     the owning entity's resource definition.  It is also recommended to default-initialize the variable.</br>
-    <br><textarea readonly="true" cols="40" rows="21">
+    <p>In general, variables of a mob are considered private to that mob and cannot be accessed by another.  
+      To expose read-only access of a variable to other mobs, you need to set the 'public' setting on that variable in
+       the owning entity's resource definition.  It is also recommended to default-initialize the variable.</p>
+    <textarea readonly="true" cols="40" rows="21">
 
     {
       "format_version": "1.10.0",
@@ -532,9 +546,9 @@
   
     <h1><p id="{ } Brace Scope Delimiters">{ } Brace Scope Delimiters</p></h1>
   
-    One can group a series of statements into a single group by wrapping them in `{` and `}` symbols.  
-    This is used primarily in loops and conditional statements:</br>
-    <br><textarea readonly="true" cols="40" rows="10">
+    <p>One can group a series of statements into a single group by wrapping them in `{` and `}` symbols.  
+      This is used primarily in loops and conditional statements:</p>
+    <textarea readonly="true" cols="40" rows="10">
   
     (v.moo > 0) ? {
       v.x = math.sin(q.life_time * 45);
@@ -548,13 +562,13 @@
   
     <h1><p id="Conditionals">Conditionals</p></h1>
   
-    The conditional '?' operator allows for two convenient ways to implement simple branching logic.</br> 
-    The first way is to use '?' by itself to conditionally execute part of an expression, for example `A ? B`. 
-    The part after the '?' is only run if the part before it evaluates to a true boolean.</br> 
-    The second way is to use '?' with a ':' as a 'conditional ternary', for example `A ? B : C`. 
-    If the part before the '?' is evaluated as true, the part before the ':' is returned. 
-    Otherwise the part after is returned.</br>
-    Conditional Examples<br><textarea readonly="true" cols="42" rows="6">
+    <p>The conditional '?' operator allows for two convenient ways to implement simple branching logic.</br> 
+      The first way is to use '?' by itself to conditionally execute part of an expression, for example `A ? B`. 
+      The part after the '?' is only run if the part before it evaluates to a true boolean.</br> 
+      The second way is to use '?' with a ':' as a 'conditional ternary', for example `A ? B : C`. 
+      If the part before the '?' is evaluated as true, the part before the ':' is returned. 
+      Otherwise the part after is returned.</p>
+    <p>Conditional Examples</p><textarea readonly="true" cols="42" rows="6">
   
     v.should_reset_a ? { v.a = 0; }
   
@@ -564,13 +578,13 @@
   
     <h1><p id="loop">loop</p></h1>
   
-    Sometimes you want to execute an expression multiple times.  
-    Rather than copy-pasting it a bunch, you can use `loop(<count>, <expression>);`.  
-      We have placed some arbitrary restrictions on these for safety for now. 
-      The maximum loop counter is (as of this document being written) 1024.  
-      Also, note that while you can nest loops inside loops pretty much as deep as you want, 
-      be careful you don't make a loop so long it will hang your game.</br>
-    A Fibonacci Calculator<br><textarea readonly="true" cols="19" rows="10">
+    <p>Sometimes you want to execute an expression multiple times.  
+      Rather than copy-pasting it a bunch, you can use `loop(<count>, <expression>);`.  
+        We have placed some arbitrary restrictions on these for safety for now. 
+        The maximum loop counter is (as of this document being written) 1024.  
+        Also, note that while you can nest loops inside loops pretty much as deep as you want, 
+        be careful you don't make a loop so long it will hang your game.</br></p>
+    <p>A Fibonacci Calculator</p><textarea readonly="true" cols="19" rows="10">
   
     v.x = 1;
     v.y = 1;
@@ -584,12 +598,12 @@
   
     <h1><p id="for_each">for_each</p></h1>
   
-    `query.get_nearby_entities` (see below) returns an array of entities.  
-    In order to iterate through them, you can use the following new built-in function `for_each`.  
-    It takes three parameters: `for_each(<variable>, <array>, <expression>);`  
-      The variable can be any variable, either a `temp.` or `variable.`, although I'd recommend using `temp.` to
-       not pollute the entity's variable space.  The expression is any Molang expression you want to execute for
-        each entry in the array)</br>
+    <p>`query.get_nearby_entities` (see below) returns an array of entities.  
+      In order to iterate through them, you can use the following new built-in function `for_each`.  
+      It takes three parameters: `for_each(<variable>, <array>, <expression>);`  
+        The variable can be any variable, either a `temp.` or `variable.`, although I'd recommend using `temp.` to
+         not pollute the entity's variable space.  The expression is any Molang expression you want to execute for
+          each entry in the array)</br></p>
     <br><textarea readonly="true" cols="65" rows="7">
   
     "v.x = 0;
@@ -601,7 +615,7 @@
   
     <h1><p id="break">break</p></h1>
   
-    This will exit out of a `loop` or `for_each` early.  Eg:</br>
+    <p>This will exit out of a `loop` or `for_each` early.  Eg:</br></p>
   
     <br><textarea readonly="true" cols="72" rows="6">
     v.x = 1;
@@ -609,31 +623,31 @@
     loop(10, {t.x = v.x + v.y; v.x = v.y; v.y = t.x; (v.y > 20) ? break;});
     </textarea> </br>
   
-    This will immediately exit the inner-most active loop, as per C-style language rules.  If you have:</br>
+    <p>This will immediately exit the inner-most active loop, as per C-style language rules.  If you have:</p>
   
-    <br><textarea readonly="true" cols="60" rows="5">
+    <textarea readonly="true" cols="60" rows="5">
   
     v.x = 0;
     loop(10, {loop(10, {v.x = v.x + 1; (v.x > 5) ? break;});});
   
     </textarea> </br>
   
-    The `break` statement will terminate the inner loop when `v.x > 5`, and continue processing the outer loop's expression.
+    <p>The `break` statement will terminate the inner loop when `v.x > 5`, and continue processing the outer loop's expression.
       Note that as v.x is not reset between the outer loops, the second time into the inner loop this will add
        one more to `v.x` and then exit the inner loop again, resulting in a final value of 
-       `v.x` of `6 + 1 + 1 + 1 + ... + 1` = `15`.)</br>
+       `v.x` of `6 + 1 + 1 + 1 + ... + 1` = `15`.)</br></p>
   
     <br><br>
   
     <h1><p id="continue">continue</p></h1>
   
-    `continue` functions as per C-style language rules.  Currently only supported in `loop` and `for_each`, 
-    this will skip to the next iteration of the current loop.  See `break` above for more details on inner/outer loops. 
-    The following example will result in v.x becoming 6.0, as the increment will be skipped once it reaches that value.  
-    Note that it is better to break out of the loop in this contrived example, 
-    as it would be more performant than continuing to perform all 10 iterations.</br>
+    <p>`continue` functions as per C-style language rules.  Currently only supported in `loop` and `for_each`, 
+      this will skip to the next iteration of the current loop.  See `break` above for more details on inner/outer loops. 
+      The following example will result in v.x becoming 6.0, as the increment will be skipped once it reaches that value.  
+      Note that it is better to break out of the loop in this contrived example, 
+      as it would be more performant than continuing to perform all 10 iterations.</p>
   
-    <br><textarea readonly="true" cols="24" rows="8">
+    <textarea readonly="true" cols="24" rows="8">
   
     v.x = 0;
     loop(10, {
@@ -647,50 +661,50 @@
   
     <h1><p id="?? Null Coalescing Operator">?? Null Coalescing Operator</p></h1>
   
-    Similar to how the null-coalescing operator works in C#, one can now reference a variable that may or may not
-     exist without seeing a content error.  If it doesn't, you can now provide a default value to use.  
-     Previously, if a variable didn't exist you would get a content error.  
-     This was to make sure variables were always initialized correctly to avoid uninitialized variable bugs.  
-     Unfortunately this then required initialize scripts, or in some cases some complex work-arounds to make sure
-      variables were initialized.  Now, if you know a variable won't be initialized in the first run of a script, 
-      you can use the following:</br>
+    <p>Similar to how the null-coalescing operator works in C#, one can now reference a variable that may or may not
+      exist without seeing a content error.  If it doesn't, you can now provide a default value to use.  
+      Previously, if a variable didn't exist you would get a content error.  
+      This was to make sure variables were always initialized correctly to avoid uninitialized variable bugs.  
+      Unfortunately this then required initialize scripts, or in some cases some complex work-arounds to make sure
+       variables were initialized.  Now, if you know a variable won't be initialized in the first run of a script, 
+       you can use the following:</p>
   
-    <br><textarea readonly="true" cols="45" rows="2">
+    <textarea readonly="true" cols="45" rows="2">
     variable.x = (variable.x ?? 1.2) + 0.3;
     </textarea> </br>
   
-    </br>This will use the value of `variable.x` if it is valid, or else 1.2 if `variable.x`:</br>
-    - has not yet been initialized</br>- is a reference to a deleted entity</br>- is an invalid reference</br>
-    - holds an error</br></br>Note that the `??` operator will work with `variable.`s, `temp.`s, and `context.`s that
-     hold numbers or entity references, but not resources such as materials, textures, or geometries (as those must
-     exist and be valid else it's a content error).  If the first argument would result in something that can't be resolved, 
-     it will return the second argument.</br></br>_Reminder: the standing rule of thumb in Molang is that if something
-     would error or be a bad value, it is converted to 0.0 (and generally throw a content error on screen in non-publish builds.
-      Note that content errors may prevent uploading content to the Marketplace, 
-      so please ensure expressions aren't going to do bad things such as dividing by zero)._</br>
+    <p></br>This will use the value of `variable.x` if it is valid, or else 1.2 if `variable.x`:</br>
+      - has not yet been initialized</br>- is a reference to a deleted entity</br>- is an invalid reference</br>
+      - holds an error</br></br>Note that the `??` operator will work with `variable.`s, `temp.`s, and `context.`s that
+       hold numbers or entity references, but not resources such as materials, textures, or geometries (as those must
+       exist and be valid else it's a content error).  If the first argument would result in something that can't be resolved, 
+       it will return the second argument.</br></br>_Reminder: the standing rule of thumb in Molang is that if something
+       would error or be a bad value, it is converted to 0.0 (and generally throw a content error on screen in non-publish builds.
+        Note that content errors may prevent uploading content to the Marketplace, 
+        so please ensure expressions aren't going to do bad things such as dividing by zero)._</br></p>
   
     <br><br>
   
     <h1><p id="Simple vs Complex Expressions">Simple vs Complex Expressions</p></h1>
   
-    A simple expression is a single statement, the value of which is returned to the system that evaluated the expression.  
+    <p>A simple expression is a single statement, the value of which is returned to the system that evaluated the expression.</p>  
     eg:</br>
     <br><textarea readonly="true" cols="40" rows="2">
     math.sin(query.anim_time * 1.23)
     </textarea> </br>
   
-    A complex expression is one with multiple statements, each ending in a ';'.  Each statement is evaluated in order.  
-    In the current implementation, the last statement requires the use of the return keyword and defines the resulting value of
-     the expression.  eg:</br>
-    <br><textarea readonly="true" cols="50" rows="4">
+    <p>A complex expression is one with multiple statements, each ending in a ';'.  Each statement is evaluated in order.  
+      In the current implementation, the last statement requires the use of the return keyword and defines the resulting value of
+       the expression.  eg:</p>
+    <textarea readonly="true" cols="50" rows="4">
     temp.moo = math.sin(query.anim_time * 1.23);
     temp.baa = math.cos(query.life_time + 2.0);
     return temp.moo * temp.moo + temp.baa;
     </textarea> </br>
   
-    Note that in a simple expression, `;` is not allowed, whereas in a complex expression, each statement requires a `;` 
-    including the last.  Also, note that if you don't `return` a value from a complex expression, 
-    the expression will evaluate to 0.0.</br>
+    <p>Note that in a simple expression, `;` is not allowed, whereas in a complex expression, each statement requires a `;` 
+      including the last.  Also, note that if you don't `return` a value from a complex expression, 
+      the expression will evaluate to 0.0.</p>
   
     <br><br>
   
@@ -700,11 +714,11 @@
   
     <h1><p id="Entity Definition Scripts">Entity Definition Scripts</p></h1>
   
-    In the definition file there is a section for pre-computing values.  These are executed immediately before animation 
-    and render controllers are processed, and stored in the entity.  The purpose is to pre-compute any expensive and complex
-     values you may want to reuse in your scripts, long-living index variable updates, or generally any one-off computation
-      per render tick.</br>
-    <br><textarea readonly="true" cols="90" rows="7">
+    <p>In the definition file there is a section for pre-computing values.  These are executed immediately before animation 
+      and render controllers are processed, and stored in the entity.  The purpose is to pre-compute any expensive and complex
+       values you may want to reuse in your scripts, long-living index variable updates, or generally any one-off computation
+        per render tick.</p>
+    <textarea readonly="true" cols="90" rows="7">
     "scripts": {
         "pre_animation": [
           "variable.my_constant = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed;",
@@ -715,24 +729,24 @@
   
     <h1><p id="Animation and Animation Controller Files">Animation and Animation Controller Files</p></h1>
   
-    These are numerical operations to control which animations are playing and how to animate bones.  "variable.variable_name"
-     and "query.function_name" refer to the entity currently being rendered.  They have access to everything in the language
-      except material, texture, and geometry types.</br>
+    <p>These are numerical operations to control which animations are playing and how to animate bones.  "variable.variable_name"
+      and "query.function_name" refer to the entity currently being rendered.  They have access to everything in the language
+       except material, texture, and geometry types.</br></p>
   
     <h1><p id="Render Controllers">Render Controllers</p></h1>
   
-    There are a few different kinds of expressions here, where context implies what is allowed.  As with animations, 
-    the entity accessors refer to the current entity, however depending on the context one also has access to materials, 
-    textures, and geometries.  There are two sections in a render controller:</br>-Array definitions (optional)</br>
-    -Resource usage (required)</br>The array definition section allows you to create arrays of resources by resource type
-     if you so desire.  These can then be referenced in the resource usage section.</br>
+    <p>There are a few different kinds of expressions here, where context implies what is allowed.  As with animations, 
+      the entity accessors refer to the current entity, however depending on the context one also has access to materials, 
+      textures, and geometries.  There are two sections in a render controller:</br>-Array definitions (optional)</br>
+      -Resource usage (required)</br>The array definition section allows you to create arrays of resources by resource type
+       if you so desire.  These can then be referenced in the resource usage section.</br></p>
   
     <h2><p id="Array Expressions">Array Expressions</p></h2>
   
-    For each of the three resource types (materials, textures, and geometry), you can define an array of resources.  
-    The name of the resource is the nice-name from the definition file.  Using materials as an example:</br>
+    <p>For each of the three resource types (materials, textures, and geometry), you can define an array of resources.  
+      The name of the resource is the nice-name from the definition file.  Using materials as an example:</p>
   
-    <br><textarea readonly="true" cols="80" rows="12">
+    <textarea readonly="true" cols="80" rows="12">
     "arrays":
     {
       "materials": {
@@ -746,13 +760,13 @@
       },
     </textarea> </br>
   
-    Note that all elements of an array must be of the same type.  eg: a texture array must only contain textures.</br></br>
-    An array can reference any combination of zero or more arrays (including duplicates if desired) and/or zero or 
-    more materails (again, including duplicates if you like), and you can have as many arrays as you like, each with 
-    as many elements as you like.  If an array includes arrays in its members, they do not need to be the same length.  
-    When indexing into an array in the resource usage section, you use numerical expressions.  
-    If the resulting number is negative, it will use zero as the index.  Any non - negative index will converted to an integer,
-     and will wrap based on the size of the array:</br>
+    <p>Note that all elements of an array must be of the same type.  eg: a texture array must only contain textures.</br></br>
+      An array can reference any combination of zero or more arrays (including duplicates if desired) and/or zero or 
+      more materails (again, including duplicates if you like), and you can have as many arrays as you like, each with 
+      as many elements as you like.  If an array includes arrays in its members, they do not need to be the same length.  
+      When indexing into an array in the resource usage section, you use numerical expressions.  
+      If the resulting number is negative, it will use zero as the index.  Any non - negative index will converted to an integer,
+       and will wrap based on the size of the array:</br></p>
     <br><textarea readonly="true" cols="55" rows="2">
     index = max(0, expression_result) % array_size
     </textarea> </br>
@@ -761,19 +775,19 @@
   
     <h2><p id="Resource Expression">Resource Expression</p></h2>
   
-    A resource expression must return a single resource of a specific type depending on the context.</br>For example, 
-    in the "geometry" section, you must produce an expression that will result in a single geometry.  Some examples:</br>
-    Cycle through an array of geometries at a rate of one per second<br><textarea readonly="true" cols="80" rows="2">
+    <p>A resource expression must return a single resource of a specific type depending on the context.</br>For example, 
+      in the "geometry" section, you must produce an expression that will result in a single geometry.  Some examples:</br><br></p>
+    <p>Cycle through an array of geometries at a rate of one per second</p><textarea readonly="true" cols="80" rows="2">
     "geometry": "array.my_geometries[query.anim_time]"
     </textarea> </br>
-    Pick a geo based on an entity flag<br><textarea readonly="true" cols="80" rows="2">
+    <p>Pick a geo based on an entity flag<br></p><textarea readonly="true" cols="80" rows="2">
     "geometry": "query.is_sheared ? geometry.sheared : geometry.woolly"
     </textarea> </br>
-    Use a specific geometry<br><textarea readonly="true" cols="50" rows="2">
+    <p>Use a specific geometry<br></p><textarea readonly="true" cols="50" rows="2">
     "geometry": "geometry.my_geo"
     </textarea> </br>
-    Use specific geo when sleeping, otherwise flip through an array based on a cosine curve, using index zero for almost 
-    half the time while the cosine curve is negative<br>
+    <p>Use specific geo when sleeping, otherwise flip through an array based on a cosine curve, using index zero for almost 
+      half the time while the cosine curve is negative<br></p>
     <textarea readonly="true" cols="80" rows="2">
     "geometry": "query.is_sleeping ? geometry.my_sleeping_geo : 
     array.my_geos[math.cos(query.anim_time * 12.3 + 41.9) * 10 + 0.6]"
@@ -783,16 +797,16 @@
   
     <h3><p id="Geometry">Geometry</p></h3>
   
-    The geometry section specifies which geometry to use when rendering.  As you can specify as many render controllers
-     as you like in the definition file, a single render controller is only concerned with how to render a single geometry.
-       Note that a geometry can be arbitrarily complex using any number of bones and polygons.</br>
+    <p>The geometry section specifies which geometry to use when rendering.  As you can specify as many render controllers
+      as you like in the definition file, a single render controller is only concerned with how to render a single geometry.
+        Note that a geometry can be arbitrarily complex using any number of bones and polygons.</br></p>
   
     <h3><p id="Materials">Materials</p></h3>
   
-    The materials section specifies how to map what material to what bone of the geometry.  
-    A single material is mapped to a whole bone.  Material expressions are evaluated in the order listed.  
-    The first part of each statement is the name of the model part to apply the material to, and the second part is 
-    the material to use.  The model part name can use * for wild - card matching of characters.  For example : </br>
+    <p>The materials section specifies how to map what material to what bone of the geometry.  
+      A single material is mapped to a whole bone.  Material expressions are evaluated in the order listed.  
+      The first part of each statement is the name of the model part to apply the material to, and the second part is 
+      the material to use.  The model part name can use * for wild - card matching of characters.  For example : </br></p>
   
     <br><textarea readonly="true" cols="100" rows="7">
      "materials": [
@@ -803,23 +817,23 @@
        ],
     </textarea> </br>
   
-    - This will start by applying Material.default to all model parts.</br>- Next, it will set the material on a 
-    model part named "TailA" to the result of the expression "Array.hairColors[variable.hair_color]".  
-    This will look up some previously created variable on the entity named hair_color and use that to index into a 
-    material array called "array.hair_colors" defined in this render controller.  This will overwrite the Material.default
-     material set in the line above.</br>- Third, it will look up the same material as the expression is identical,
-      and apply it to the "Mane" model part.</br>- Lastly, if will find any model part starting with, ending with, 
-      or containing "Saddle" (case sensitive) and change its material to either material.leather_saddle or 
-      material.iron_saddle depending on the previously set entity variable variable.is_leather_saddle.</br>
+    <p>- This will start by applying Material.default to all model parts.</br>- Next, it will set the material on a 
+      model part named "TailA" to the result of the expression "Array.hairColors[variable.hair_color]".  
+      This will look up some previously created variable on the entity named hair_color and use that to index into a 
+      material array called "array.hair_colors" defined in this render controller.  This will overwrite the Material.default
+       material set in the line above.</br>- Third, it will look up the same material as the expression is identical,
+        and apply it to the "Mane" model part.</br>- Lastly, if will find any model part starting with, ending with, 
+        or containing "Saddle" (case sensitive) and change its material to either material.leather_saddle or 
+        material.iron_saddle depending on the previously set entity variable variable.is_leather_saddle.</br></p>
   
     <br><br>
   
     <h1><p class="imp-p" id="Second Query Functions">Query Functions</p></h1>
   
-    Query Functions are operators that access a wide variety of information. They can return simple true or 
-    false values (1.0 or 0.0) or more complex data. See the list of functions below for per-query documentation. 
-    Query Functions might not take any parameters. In that case, just `query.function_name` is used. Otherwise parentheses
-     with commas separating arguments should be used, ie `query.function_name(1, 2, 'three')`. For example:</br>
+    <p>Query Functions are operators that access a wide variety of information. They can return simple true or 
+      false values (1.0 or 0.0) or more complex data. See the list of functions below for per-query documentation. 
+      Query Functions might not take any parameters. In that case, just `query.function_name` is used. Otherwise parentheses
+       with commas separating arguments should be used, ie `query.function_name(1, 2, 'three')`. For example:</br></p>
     <br><textarea readonly="true" cols="85" rows="2">
     "position": [ 0.0, "query.is_baby ? -8.0 : 0.0", "query.is_baby ? 4.0 : 0.0" ]
     </textarea> </br>
@@ -1951,19 +1965,19 @@
   
     <h1><p class="imp-p" id="Experimental Operators">Experimental Operators</p></h1>
   
-    Some operators may be behind experimental gameplay toggles (see list below).  After getting feedback, we can adjust 
-    them further or move them into general availability.</br></br>- (There are currently no Experimental Operators)</br>
+    <p>Some operators may be behind experimental gameplay toggles (see list below).  After getting feedback, we can adjust 
+      them further or move them into general availability.</br></br>- (There are currently no Experimental Operators)</br></p>
   
-    <h1><p class="imp-p" id="Versioned Changes">Versioned Changes</p></h1>
+    <h1><p class="imp-p" id="VersionedChanges">Versioned Changes</p></h1>
   
-    Molang uses the `"min_engine_version"` from the `manifest.json` of the resource or behavior pack that contains each 
-    Molang expression to determine which version of the rules to apply. This allows for changes to how Molang works without 
-    breaking existing content. </br></br>Molang Versioned Change versions apply to each expression separately, 
-    so it's possible to have different versions active if multiple packs are loaded. </br></br>This is a list of 
-    the Versioned Changes that have been added, along with the corresponding game version. </br></br>To know which 
-    Versioned Changes are in effect, look at the `"min_engine_version"` of the `manifest.json` of the resource or 
-    behavior pack that contains your Molang expression. Any Versioned Change with a version less than or equal to 
-    that version number will be in effect. </br>
+    <p>Molang uses the `"min_engine_version"` from the `manifest.json` of the resource or behavior pack that contains each 
+      Molang expression to determine which version of the rules to apply. This allows for changes to how Molang works without 
+      breaking existing content. </br></br>Molang Versioned Change versions apply to each expression separately, 
+      so it's possible to have different versions active if multiple packs are loaded. </br></br>This is a list of 
+      the Versioned Changes that have been added, along with the corresponding game version. </br></br>To know which 
+      Versioned Changes are in effect, look at the `"min_engine_version"` of the `manifest.json` of the resource or 
+      behavior pack that contains your Molang expression. Any Versioned Change with a version less than or equal to 
+      that version number will be in effect. </br></p>
     
     <h1><p id="Versioned Change Versions">Versioned Change Versions</p></h1>
   

@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Sirin+Stencil&display=swap');
+
+:root{
+    --font: 'Sirin Stencil', cursive;
+    --font-color: #e6e6e6;
+    --main-green: rgb(22, 53, 40);
+}
+html{scroll-behavior: smooth;}
+
+::selection {
+    color: rgb(191, 255, 191);
+    background-color: rgba(32, 117, 83, 0.8);
+}
+
+body{
+    box-sizing: border-box;
+    margin: 0;
+    background-color: var(--main-green);
+    color: var(--font-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.doc img{
+    margin: 0 18% 0 12%;
+    width: 100%;
+    border-radius: 8px;
+}
+.ms-logo{
+    position: absolute;
+    border-radius: 0;
+    right: 30px;
+    top: 38px;
+    width: 20px;
+}.floatinghouse{
+    opacity: 0.3;
+    position: absolute;
+    left: 15px;
+    bottom: 30px;
+    width: 85px;
+    transition: all .3s ease-in-out;
+}.floatinghouse:hover{transform: scale(1.05);opacity: 1;}
+.navigation{
+    background-color: rgb(17, 39, 26);
+    height: 100%;
+    width: 350px;
+    top: 0;
+    position: fixed;
+    /* overflow-y: scroll; */
+}
+.ms-doc{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background-color: #171717;
+}
+.ms{
+    margin: 8px 0;
+    text-align: center;
+    font-size: 0.8rem;
+}
+.ms-doc-link{
+    display: block;
+    text-align: end;
+    padding: 0 65px 8px 0;
+    font-size: 1.2rem;
+}
+a{
+    text-decoration: none;
+    color: #75b6e7;
+}
+
+.doc{margin: 5% 25% 5% 20%;}
+.doc p{
+    font-size: 18px;
+    color: rgb(231, 231, 231);
+}
+h1{
+    margin-bottom: 10%;
+    text-align: center;
+    font-size: clamp(1.875rem,22.1053px + 1.64474vw,2.5rem);
+}
+h2{
+    margin-left: 8%;
+    font-size: clamp(1.59375rem,18.7895px + 1.39803vw,2.125rem);
+}
+h2 + p{margin-left: 12%;}
+h3{
+    margin: 0 25% 0 10%;
+    font-size: clamp(1.2125rem,13.4737px + 1.05132vw,1.6rem);
+}
+h3 + p, .doc p, ol, ul{margin-left: 15%;}
+
+li{margin-top: 1rem;}
+ol img{margin: 5% 0;}
+
+ol, ul{font-size: 18px;}
+
+.xp{
+    margin: 55px 0 8px 0;
+    font-size: 22px!important;
+}
